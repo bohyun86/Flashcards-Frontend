@@ -1,0 +1,73 @@
+body {
+    background-image: url("world.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header {
+    text-align: center;
+    color: darkslategray;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh; /* This ensures the container takes up the full height of the view */
+}
+
+.cards_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    place-items: start center;
+    width: 650px;
+    perspective: 1000px; /* Needed to apply the 3D flip effect */
+}
+
+.card-container {
+    perspective: 1000px; /* Needed to apply the 3D flip effect */
+}
+
+.cards {
+    background-color: aquamarine;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    color: olive;
+    font-size: 24px;
+    padding: 10px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d; /* Preserve the 3D transformation when flipping */
+}
+
+.cards:hover {
+    transform: rotateY(180deg); /* Apply the flip effect on hover */
+}
+
+.cards .front, .cards .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden; /* Hide the back face */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.cards .back {
+    background-color: #f9f9f9;
+    color: black;
+    transform: rotateY(180deg); /* Rotate the back side */
+    text-align: center;
+    font-size: 24px;
+    font-family: "Oswald", sans-serif;
+}
